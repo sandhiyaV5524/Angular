@@ -1,0 +1,83 @@
+<!--<form (submit)="signupUser($event)">
+	<div class="input">
+		<label >Username</label>
+		<input   type="text">
+		
+    </div>
+    <div class="input">
+		<label >Email-id</label>
+		<input   type="text">
+	</div>
+	<div class="input">
+		<label >Password</label>
+		<input   type="password">
+    </div>
+    <div class="input">
+		<label>Reenter-Password</label>
+		<input type="password">
+	</div>
+	<div class="input">
+		<input type="submit" value="register">
+    </div>
+	</form>
+-->
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<div style="background-image: url('https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');">
+	
+		<div class="container">
+	<h2 class="textual">User Registration</h2>
+	<form #loginform="ngForm" (ngSubmit)="Register()">
+
+		<!--<small [class.text-danger]="msg.status==500">{{msg.message}}</small>-->
+		<div class="form-group">
+			<label for="id">Empid:</label>
+			<input type="number" class="form-control"  placeholder="Enter id" name="id"  [(ngModel)]="user.id"  required
+			#id="ngModel" [class.is-invalid]="id.invalid && id.touched">
+			<small class="text-danger" [class.d-none]="id.valid || id.untouched">username is required </small>
+		  </div>
+		<div class="form-group">
+			<label for="username">Username:</label>
+			<input type="text" class="form-control"  placeholder="Enter username" name="username"  [(ngModel)]="user.username"  required
+			#username="ngModel" [class.is-invalid]="username.invalid && username.touched">
+			<small class="text-danger" [class.d-none]="username.valid || username.untouched">username is required </small>
+		  </div>
+	  <div class="form-group">
+		<label for="email">Email:</label>
+		<input type="email" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="user.emailId" required
+		pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+		#email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+		<div *ngIf="email.errors && (email.invalid && email.touched)">
+			<small class="text-danger" *ngIf="email.errors.required">Email id is required </small>
+			<small class="text-danger" *ngIf="email.errors.pattern">Enter the valid emailid </small>
+		</div>
+		
+	  </div>
+	  <div class="form-group">
+		<label for="pwd">Password:</label>
+		<input type="password" class="form-control"  placeholder="Enter password" name="password"  [(ngModel)]="user.password"  required
+		#password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+		<small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required </small>
+	  </div>
+	  <div class="form-group">
+		<label for="pwd">Confirm Password:</label>
+		<input type="password" class="form-control"  placeholder="Enter password" name="cpassword"  (ngModel)="user.password"  required
+		#cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched">
+		<small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">password & confirm password must be same required </small>
+	  </div>
+	  
+	  <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info">Register</button>
+	</form>
+	<small class="btn btn-info"  class="float-right" [routerLink]="['/login']" > Existing User? Login here</small>
+  </div>
+</div>  
+  </body>
+  
+

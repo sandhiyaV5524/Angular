@@ -1,0 +1,43 @@
+:host {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.input {
+	position: relative;
+}
+
+div.input label {
+	position: absolute;
+	top: 0;
+	transform: translateY(-50%);
+	left: 10px;
+	background: white;
+	padding: 5px 2px;
+}
+
+div.input input {
+	padding: 10px 20px;
+	font-size: 25px;
+	outline: 0;
+}
+
+div.input {
+	margin-top: 20px;
+}
+.bg-1 {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  }
+  .bg {
+	/* The image used */
+	background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+	/* Full height */
+	height: 100%;
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  }

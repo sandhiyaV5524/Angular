@@ -1,0 +1,61 @@
+
+	<!--
+		<form (submit)="loginUser($event)"><div class="input">
+		<label for="name">Username</label>
+		<input id="name" required type="text">
+	</div>
+	<div class="input">
+		<label for="pswd">Password</label>
+		<input id="pswd" required type="password">
+	</div>
+	<div class="input">
+		<input type="submit" value="Login">
+    </div>
+    <div>
+	<a routerLink='/signup' class="btn btn-link">SignUp</a>
+	
+</div>
+</form>
+-->
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  
+  <div class="container">
+	<h2>User Login</h2>
+	<form #loginform="ngForm" (ngSubmit)="loginUser()">
+		{{loginform.form.valid}}
+		<small class="text-danger">{{msg}}</small>
+	  <div class="form-group">
+		<label for="email">Email:</label>
+		<input type="email" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="login.emailId" required
+		pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+		#email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+		<div *ngIf="email.errors && (email.invalid && email.touched)">
+			<small class="text-danger" *ngIf="email.errors.required">Email id is required </small>
+			<small class="text-danger" *ngIf="email.errors.pattern">Enter the valid emailid </small>
+		</div>
+		
+	  </div>
+	  <div class="form-group">
+		<label for="pwd">Password:</label>
+		<input type="password" class="form-control"  placeholder="Enter password" name="password"  [(ngModel)]="login.password"  required
+		#password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+		<small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required </small>
+	  </div>
+	  <div class="checkbox">
+		<label><input type="checkbox" name="remember"> Remember me</label>
+	  </div>
+	  <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info">Login</button>
+	</form>
+	<small class="float-right" [routerLink]="['/signup']"> New User? Register here</small>
+  </div>
+  
+  </body>
+  

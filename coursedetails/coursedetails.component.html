@@ -1,0 +1,20 @@
+<div class="col-md-6">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>COURSE ID</th>
+      <th>COURSE NAME</th>
+      <th>TRAINER ID</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of courses">
+            <td>{{ course.id}}</td>
+            <td>{{course.c_name}}</td>
+            <td>{{course.trainer_id}}</td>
+            <td><button class="btn btn-danger" (click)="deleteEmployee()"> View Trainer Details </button></td>
+            </tr>
+    </tbody>
+      </table>
+  
+    </div>

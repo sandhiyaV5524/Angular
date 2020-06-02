@@ -1,0 +1,18 @@
+button {
+    width:1000px;
+    height:70px;
+    vertical-align: middle;
+}
+.centered {
+    text-align: center;
+}
+.a{
+    border: 1px solid black;
+    padding: 25px 50px 75px 50px;
+    background-color: lightblue;
+  }
+  .b{
+    border: 1px solid black;
+    padding: 50px 50px 50px 50px;
+    background-color: lightblue;
+  }
